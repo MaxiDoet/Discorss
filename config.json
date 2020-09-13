@@ -1,4 +1,5 @@
 {
     "BOT_TOKEN": "NzU0NDAzMjIzMzMwMjI2MzI3.X10OwA.7rztqDKR-eKlP7jcV3ReNZEO_rY",
-    "RSS_FILE": "feed.rss"
+    "RSS_FILE": "feed.rss",
+    "WEB_SERVER": "enabled"
 }

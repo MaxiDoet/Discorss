@@ -61,7 +61,7 @@ function createFeed(title, description) {
 }
 
 function updateRSS() {
-  fs.writeFile("./rss/" + config.RSS_FILE, feed.xml(), function (err) {
+  fs.writeFileSync("./rss/" + config.RSS_FILE, feed.xml(), function (err) {
   if (err) throw err;
   console.log('Saved Changes');
 });
