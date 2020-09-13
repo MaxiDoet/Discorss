@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 var RSS = require('rss');
 const config = require("./config.json");
 var fs = require('fs');
-const express = require('express');
 
 const client = new Discord.Client();
 
@@ -10,20 +9,6 @@ client.login(config.BOT_TOKEN);
 
 let feed;
 let firstMessage;
-
-let app;
-let PORT = 3000;
-
-if (config.WEB_SERVER == "enabled") {
-  app = express();
-
-  app.use('/rss', express.static('rss'));
-
-  app.listen(PORT, () => {
-  console.log(`RSS server listening at http://localhost:${PORT}`)
-  });
-
-}
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
