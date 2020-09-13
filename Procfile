@@ -1,2 +1,1 @@
-bot: node bot.js
-web: node rssserver.js
+web: node bot.js
