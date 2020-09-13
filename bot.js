@@ -17,18 +17,11 @@ let port = 3000;
 if (config.WEB_SERVER == "enabled") {
   app = express();
 
-  app.get('/rss/:feed', (req, res) => {
-  var feed = req.params.feed;
-  if (!feed) { res.send('Invalid Feed!')}
-
-  var f = fs.readFileSync("rss/" + feed, function (data, err) {
-  if (err) { res.send('Feed file not found!')};
-  res.send(data)
-  })
+  app.use('/rss', express.static('rss'));
 
   app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-  })
+  console.log(`RSS server listening at http://localhost:${port}`)
+  });
 
 }
 
