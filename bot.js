@@ -16,7 +16,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', function(req, res){
-  res.sendFile('rss/feed.rss');
+  res.sendFile('./rss/feed.rss');
 }); 
 
 app.listen(process.env.PORT || 8080);
