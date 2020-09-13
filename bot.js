@@ -12,15 +12,15 @@ let feed;
 let firstMessage;
 
 let app;
-let port = 3000;
+let PORT = 3000;
 
 if (config.WEB_SERVER == "enabled") {
   app = express();
 
   app.use('/rss', express.static('rss'));
 
-  app.listen(port, () => {
-  console.log(`RSS server listening at http://localhost:${port}`)
+  app.listen(PORT, () => {
+  console.log(`RSS server listening at http://localhost:${PORT}`)
   });
 
 }
