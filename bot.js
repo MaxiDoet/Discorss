@@ -16,7 +16,7 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', function(req, res){
+app.get('/feed', function(req, res){
   res.sendFile(path.join(__dirname, 'rss/feed.rss'));
 }); 
 
