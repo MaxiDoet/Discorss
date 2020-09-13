@@ -4,7 +4,8 @@
   "description": "A discord bot which generates a rss feed of a discord bot",
   "main": "index.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "rssserver": "node rssserver.js"
   },
   "author": "",
   "license": "ISC",
