@@ -10,13 +10,17 @@ client.login(config.BOT_TOKEN);
 let feed;
 let firstMessage;
 
+
 const express = require('express');
 
 const app = express();
 
-app.use(express.static('./rss'));
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.listen(process.env.PORT || 8080);
+
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
