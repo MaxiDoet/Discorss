@@ -1,0 +1,17 @@
+{
+  "name": "discorss",
+  "version": "1.0.0",
+  "description": "A discord bot which generates a rss feed of a discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord": "^0.8.2",
+    "discord.js": "^12.3.1",
+    "rss": "^1.2.2",
+    "rss-generator": "0.0.3"
+  }
+}
