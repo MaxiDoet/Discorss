@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 var RSS = require('rss');
 const config = require("./config.json");
 var fs = require('fs');
+const express = require('express');
 
 const client = new Discord.Client();
 
@@ -9,6 +10,27 @@ client.login(config.BOT_TOKEN);
 
 let feed;
 let firstMessage;
+
+let app;
+let port = 3000;
+
+if (config.WEB_SERVER == "enabled") {
+  app = express();
+
+  app.get('/rss/:feed', (req, res) => {
+  var feed = req.params.feed;
+  if (!feed) { res.send('Invalid Feed!')}
+
+  var f = fs.readFileSync("rss/" + feed, function (data, err) {
+  if (err) { res.send('Feed file not found!')};
+  res.send(data)
+  })
+
+  app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+  })
+
+}
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -46,7 +68,7 @@ function createFeed(title, description) {
 }
 
 function updateRSS() {
-  fs.writeFile(config.RSS_FILE, feed.xml(), function (err) {
+  fs.writeFile("rss/" + config.RSS_FILE, feed.xml(), function (err) {
   if (err) throw err;
   console.log('Saved Changes');
 });
