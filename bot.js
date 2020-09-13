@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 var RSS = require('rss');
 const config = require("./config.json");
 var fs = require('fs');
+const path = require('path');
 
 const client = new Discord.Client();
 
@@ -16,7 +17,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', function(req, res){
-  res.sendFile('./rss/feed.rss');
+  res.sendFile(path.join(__dirname, 'rss/feed.rss'));
 }); 
 
 app.listen(process.env.PORT || 8080);
